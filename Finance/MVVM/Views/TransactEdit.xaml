@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Empreendedores.MVVM.Views.TransactEdit"
+             Title="TransactEdit">
+    <VerticalStackLayout>
+        <Border BackgroundColor="Black" 
+                Margin="15"
+                Padding="10" 
+                Stroke="transparent"
+                StrokeShape="RoundRectangle 30">
+
+            <Grid ColumnDefinitions="*,40" 
+                  RowDefinitions="auto"
+                  >
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Text="Atualizar" TextColor="White"/>
+                <Image Grid.Row="0"
+                        Grid.Column="1"
+                       Source="close.png"
+                       WidthRequest="17"            
+                       HeightRequest="17"
+                        >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fechar_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+        <Label x:Name="LabelError" IsVisible="false" TextColor="Red" Margin="15,0"/>
+        <Grid ColumnDefinitions="*,*" Margin="20,5">
+            <RadioButton
+            IsChecked="True"
+                x:Name="RadioIncome"
+            Content="Receita"/>
+            <RadioButton Content="Despesa"
+                         HorizontalOptions="End" 
+                         Grid.Column="1"
+                         x:Name="RadioExpense"/>
+        </Grid>
+        <Entry Placeholder="Nome"
+               Margin="15,5"
+               x:Name="EntryName"/>
+        <DatePicker Margin="15,5" x:Name="DatePickerData"/>
+        <Entry Placeholder="Valor" Margin="15,5" Keyboard="Numeric" x:Name="EntryValor"/>
+
+        <Button Text="Salvar" Margin="15,5" HorizontalOptions="Center" Clicked="Salvar_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
